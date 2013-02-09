@@ -8,8 +8,8 @@ exports.getEmail = function(req, res) {
     res.statusCode = 200;
     res.send("Ok");
     sendgrid.send({
-		  to: 'yourex@vkb.me',
-		  from: 'vk.balakrishnan@gmail.com',
+		  to: 'vk.balakrishnan@gmail.com',
+		  from: 'yourex@vkb.me',
 		  subject: 'Hello World',
 		  text: 'My first email through SendGrid'
 		}, function(success, message) {
