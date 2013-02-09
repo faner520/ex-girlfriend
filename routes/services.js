@@ -52,7 +52,10 @@ exports.getEmail = function(req, res) {
 
 exports.getXML = function(req,res){
 	var data = {
-			"Say": "Thank you for calling"
+			"Say": {
+				@ : {"voice" : "woman"},
+				# : "Thank you for calling"
+			}
 	};
 	res.send(js2xmlparser("Response", data));
 };
