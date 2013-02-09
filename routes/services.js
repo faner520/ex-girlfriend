@@ -8,11 +8,12 @@ exports.getEmail = function(req, res) {
     console.log(req.body.text + "|FROM|" + req.body.subject +req.body.from+req.body.to);
     res.statusCode = 200;
     res.send("Ok");
-    var valid = req.body.to.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);;
+    var validto = req.body.to.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+    var validfrom = req.body.from.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
     console.log(valid);
     if( valid == "ex@vkb.me"){
 	    sendgrid.send({
-			  to: valid,
+			  to: validfrom,
 			  from: 'yourex@vkb.me',
 			  subject: 'You will recieve a call shortly',
 			  text: 'Hey,\nI will call you as soon as possible. I know this is a template reply, but I will call.\nYour X.'
