@@ -62,6 +62,7 @@ exports.getXML = function(req,res){
 				"#" : query.text
 			}
 	};
-	console.log(data);
-	res.send(js2xmlparser("Response", data));
+	var callxml = js2xmlparser("Response", data);
+	console.log(callxml);
+	res.send(callxml);
 };
