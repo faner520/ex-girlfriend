@@ -1,9 +1,6 @@
 var express     = require('express');
 var services    = require('./routes/services');
-var SendGrid = require('sendgrid').SendGrid;
-var user = "vk.balakrishnan";
-var key = "kannan88";
-var sendgrid = new SendGrid(user, key);
+
 
 var log4js = require('log4js');
 //log the logger messages to a file, and the console ones as well.
