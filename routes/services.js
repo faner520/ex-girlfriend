@@ -36,7 +36,7 @@ exports.getEmail = function(req, res) {
 			  	client.makeCall({
 						  to: req.body.subject, // Any number Twilio can call
 					    from: '+14698444602', // A number you bought from Twilio and can use for outbound communication
-					    url: 'http://vkb.me/ex/xml/?text='+req.body.text// A URL that produces an XML document (TwiML) which contains instructions for the call
+					    url: 'http://vkb.me/ex/xml/?text='+encodeURI(req.body.text)// A URL that produces an XML document (TwiML) which contains instructions for the call
 
 					}, function(err, responseData) {
 
