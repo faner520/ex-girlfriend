@@ -1,5 +1,5 @@
 var express     = require('express'),
-    services    = require('./routes/services'),
+    services    = require('./routes/services');
 
 var log4js = require('log4js');
 //log the logger messages to a file, and the console ones as well.
@@ -32,11 +32,6 @@ app.get('/', function(req, res){
 });
 
 app.post('/', services.getEmail);
-
-
-//app.put('/msgq/:id', services.updateservices);
-//app.delete('/msgq/:id', services.deleteservices);
-
 
 
 app.listen(3333, '127.0.0.1');
