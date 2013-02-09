@@ -55,11 +55,11 @@ exports.getEmail = function(req, res) {
 
 exports.getXML = function(req,res){
 	var url_request = url.parse(req.url).query;
-	console.log(querystring.parse(url_request));
+	var query = querystring.parse(url_request);
 	var data = {
 			"Say": {
 				"@" : {"voice" : "woman"},
-				"#" : "Thank you for calling"
+				"#" : query.text
 			}
 	};
 	res.send(js2xmlparser("Response", data));
