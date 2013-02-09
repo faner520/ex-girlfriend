@@ -53,8 +53,8 @@ exports.getEmail = function(req, res) {
 exports.getXML = function(req,res){
 	var data = {
 			"Say": {
-				@ : {"voice" : "woman"},
-				# : "Thank you for calling"
+				"@" : {"voice" : "woman"},
+				"#" : "Thank you for calling"
 			}
 	};
 	res.send(js2xmlparser("Response", data));
