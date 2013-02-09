@@ -52,9 +52,9 @@ exports.getEmail = function(req, res) {
 
 exports.getXML = function(req,res){
 	var data = {
-		"Response" : [
+		"Response" : {
 			"Say":req.body.text
-		]
+		}
 	};
 	res.send(callxml);
 };
