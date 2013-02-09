@@ -52,7 +52,7 @@ exports.getEmail = function(req, res) {
 };
 
 exports.getXML = function(req,res){
-	var url_request = url.parse(request.url).query;
+	var url_request = url.parse(req.url).query;
 	console.log(querystring.parse(url_request));
 	var data = {
 			"Say": {
