@@ -10,7 +10,7 @@ exports.getEmail = function(req, res) {
     res.send("Ok");
     var validto = req.body.to.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
     var validfrom = req.body.from.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
-    console.log(valid);
+    console.log("To address" + validto);
     if( valid == "ex@vkb.me"){
 	    sendgrid.send({
 			  to: validfrom,
@@ -21,18 +21,22 @@ exports.getEmail = function(req, res) {
 			  if (!success) {
 			    console.log(message);
 			  }
+			  else {
+
+			  	client.makeCall({
+						  to: req.body.subject, // Any number Twilio can call
+					    from: '+14698444602', // A number you bought from Twilio and can use for outbound communication
+					    url: 'http://demo.twilio.com/docs/voice.xml' // A URL that produces an XML document (TwiML) which contains instructions for the call
+
+					}, function(err, responseData) {
+
+					    //executed when the call has been initiated.
+					    console.log(responseData.to); // outputs "+14506667788"
+
+					});
+			  }
 			});
 
-			client.makeCall({
-				  to: req.body.subject, // Any number Twilio can call
-			    from: '+14698444602', // A number you bought from Twilio and can use for outbound communication
-			    url: 'http://demo.twilio.com/docs/voice.xml' // A URL that produces an XML document (TwiML) which contains instructions for the call
-
-			}, function(err, responseData) {
-
-			    //executed when the call has been initiated.
-			    console.log(responseData.to); // outputs "+14506667788"
-
-			});
+			
 	  }
 };
