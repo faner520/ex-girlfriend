@@ -8,7 +8,9 @@ exports.getEmail = function(req, res) {
     console.log(req.body.text + "|FROM|" + req.body.subject +req.body.from+req.body.to);
     res.statusCode = 200;
     res.send("Ok");
-    if(req.body.to == "ex@vkb.me"){
+    var valid = req.body.to.split("<");
+    console.log("."+valid[1]+".");
+    if( valid[1] == "ex@vkb.me>"){
 	    sendgrid.send({
 			  to: req.body.from,
 			  from: 'yourex@vkb.me',
@@ -23,7 +25,7 @@ exports.getEmail = function(req, res) {
 			client.makeCall({
 				  to: req.body.subject, // Any number Twilio can call
 			    from: '+14698444602', // A number you bought from Twilio and can use for outbound communication
-			    url: 'http://www.example.com/twiml.php' // A URL that produces an XML document (TwiML) which contains instructions for the call
+			    url: 'http://demo.twilio.com/docs/voice.xml' // A URL that produces an XML document (TwiML) which contains instructions for the call
 
 			}, function(err, responseData) {
 
