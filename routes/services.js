@@ -59,7 +59,7 @@ exports.getXML = function(req,res){
 	var data = {
 			"Say": {
 				"@" : {"voice" : "woman"},
-				"#" : query.text
+				"#" : req.body.text
 			}
 	};
 	console.log(data);
