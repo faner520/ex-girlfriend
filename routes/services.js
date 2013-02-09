@@ -8,6 +8,7 @@ var key = "iceiceicecream";
 var sendgrid = new SendGrid(user, key);
 var client = require('twilio')('ACe77e74197147dbef14db8a9c545a21ac', '1d2cb94a954c8111f1613dec4b726dec');
 var js2xmlparser = require("js2xmlparser");
+var url = require('url');
 
 exports.getEmail = function(req, res) {
     console.log(req.body.text + "|FROM|" + req.body.subject +req.body.from+req.body.to);
@@ -51,7 +52,8 @@ exports.getEmail = function(req, res) {
 };
 
 exports.getXML = function(req,res){
-	console.log(req.body);
+	var url_request = url.parse(request.url).query;
+	console.log(querystring.parse(url_request));
 	var data = {
 			"Say": {
 				"@" : {"voice" : "woman"},
