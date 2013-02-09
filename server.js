@@ -33,6 +33,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/xml', services.getXML);
+app.post('/xml', services.getXML);
 
 app.post('/', services.getEmail);
 
