@@ -11,7 +11,7 @@ exports.getEmail = function(req, res) {
     var validto = req.body.to.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
     var validfrom = req.body.from.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
     console.log("To address" + validto);
-    if( valid == "ex@vkb.me"){
+    if( validto == "ex@vkb.me"){
 	    sendgrid.send({
 			  to: validfrom,
 			  from: 'yourex@vkb.me',
