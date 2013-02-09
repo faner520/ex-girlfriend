@@ -32,13 +32,10 @@ app.get('/', function(req, res){
   res.sendfile(__dirname + '/index.html');
 });
 
-app.get('/xml', services.getXML);
-app.post('/xml', services.getXML);
-
-app.post('/', services.getEmail);
+app.post('/', services.doWork);
 
 
-app.listen(3333, '127.0.0.1');
+app.listen(7777, '127.0.0.1');
 
 console.log('Listening on port 3000...');	
 
