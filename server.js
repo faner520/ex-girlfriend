@@ -1,5 +1,5 @@
-var express     = require('express'),
-    services    = require('./routes/services');
+var express     = require('express');
+var services    = require('./routes/services');
 
 var log4js = require('log4js');
 //log the logger messages to a file, and the console ones as well.
