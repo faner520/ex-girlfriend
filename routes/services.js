@@ -37,7 +37,7 @@ exports.getEmail = function(req, res) {
 					}, function(err, responseData) {
 
 					    //executed when the call has been initiated.
-					    console.log(responseData.to); // outputs "+14506667788"
+					    console.log('calling' +responseData.to); // outputs "+14506667788"
 
 					});
 			  }
