@@ -8,9 +8,9 @@ exports.getEmail = function(req, res) {
     console.log(req.body.text + "|FROM|" + req.body.subject +req.body.from+req.body.to);
     res.statusCode = 200;
     res.send("Ok");
-    var valid = req.body.to.split("<");
+    var valid = req.body.to..match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);;
     console.log(valid);
-    if( valid[1] == "ex@vkb.me>"){
+    if( valid == "ex@vkb.me"){
 	    sendgrid.send({
 			  to: req.body.from,
 			  from: 'yourex@vkb.me',
