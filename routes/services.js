@@ -16,7 +16,7 @@ exports.getEmail = function(req, res) {
     var validfrom = req.body.from.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
     console.log("To address: " + validto);
     console.log("From address: " + validfrom);
-
+    
     if( validto == "ex@vkb.me"){
 	    sendgrid.send({
 			  to: validfrom,
@@ -32,14 +32,14 @@ exports.getEmail = function(req, res) {
 			  	client.makeCall({
 						  to: req.body.subject, // Any number Twilio can call
 					    from: '+14698444602', // A number you bought from Twilio and can use for outbound communication
-					    url: 'http://demo.twilio.com/docs/voice.xml' // A URL that produces an XML document (TwiML) which contains instructions for the call
+					    url: 'http://vkb.me/ex/xml/?text='+req.body.text// A URL that produces an XML document (TwiML) which contains instructions for the call
 
 					}, function(err, responseData) {
 
 					    //executed when the call has been initiated.
 					    console.log('calling' +responseData.to); // outputs "+14506667788"
 					    if(err) {
-					    	console.log(err);
+					    	console.log(err.body);
 					    }
 					});
 			  }
@@ -47,4 +47,14 @@ exports.getEmail = function(req, res) {
 
 			
 	  }
+};
+
+exports.getXML = function(req,res){
+	var callxml = 
+    '<?xml version="1.0" encoding="UTF-8"?>
+			<Response>
+			    <Say voice="woman">'+req.body.text+'</Say>
+			    <Record maxLength="20" />
+			</Response>';
+	res.send(callxml);
 };
