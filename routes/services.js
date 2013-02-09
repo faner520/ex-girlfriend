@@ -51,6 +51,7 @@ exports.getEmail = function(req, res) {
 };
 
 exports.getXML = function(req,res){
+	console.log(req.body);
 	var data = {
 			"Say": {
 				"@" : {"voice" : "woman"},
