@@ -9,7 +9,7 @@ exports.getEmail = function(req, res) {
     res.statusCode = 200;
     res.send("Ok");
     var valid = req.body.to.split("<");
-    console.log("."+valid[1]+".");
+    console.log(valid);
     if( valid[1] == "ex@vkb.me>"){
 	    sendgrid.send({
 			  to: req.body.from,
